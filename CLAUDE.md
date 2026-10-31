@@ -65,7 +65,10 @@ watchers.
   wallet's NFTs filtered by the TON DNS collection (`ton::TON_DNS_COLLECTION`) →
   each item's `dns` field is a domain name → subscribe the user to all of them,
   fetching each domain's expiry inline via `fetch_info` (throttled to ~1/sec by
-  `TonClient`, so it takes ~N seconds and sends an up-front ack).
+  `TonClient`, so it takes ~N seconds and sends an up-front ack). With no
+  argument, the wallets are instead the distinct stored `owner_address`es of
+  the user's watched domains (populated by the daily refresh); each wallet is
+  swept the same way, and a per-wallet listing failure is reported, not fatal.
 - **Domain identity:** `normalize_domain` lowercases, strips `@`/whitespace, and
   requires a `.ton` suffix (with a non-empty label). Only `.ton` is supported —
   `.t.me` names don't expire. Domains are stored once and shared across users via
