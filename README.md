@@ -16,7 +16,8 @@ summary on the 1st of each month.
   fetched from the TON API once per refresh.
 - **Bulk add by wallet** — `/addall foo.ton` resolves the domain's owner and
   subscribes you to every `.ton` domain that wallet holds, fetching each expiry
-  inline (throttled, so it takes a few seconds for large wallets).
+  inline (throttled, so it takes a few seconds for large wallets). Plain
+  `/addall` does the same for the owner wallets of every domain you already watch.
 - **Owner tracking** — each domain's owning wallet is stored and shown alongside
   its expiry, refreshed daily.
 - **Daily refresh** of expiry dates via a [tonapi.io](https://tonapi.io)-compatible API.
@@ -33,6 +34,7 @@ summary on the 1st of each month.
 | `/help`          | List all commands                             |
 | `/add foo.ton`   | Start watching a domain                        |
 | `/addall foo.ton`| Watch every `.ton` domain owned by that domain's wallet |
+| `/addall`        | Same, for the owner wallets of every domain you already watch |
 | `/remove foo.ton`| Stop watching a domain                         |
 | `/list`          | Show your watched domains, expiry dates, and owners |
 
